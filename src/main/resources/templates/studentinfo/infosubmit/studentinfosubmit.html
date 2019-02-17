@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport"
+	content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="stylesheet" href="../../assets/css/bootstrap.min.css" />
+<link rel="stylesheet" href="../../assets/css/style.css" />
+<link rel="stylesheet" href="../../assets/css/codemirror.css">
+<link rel="stylesheet" href="../../assets/css/ace.min.css" />
+<link rel="stylesheet" href="../../assets/css/bootstrap-table.min.css" />
+<script src="../.././assets/js/jquery-2.0.3.min.js"></script>
+<script src="../.././assets/js/bootstrap-table.min.js"></script>
+<script src="../.././assets/js/bootstrap-table-zh-CN.min.js"></script>
+<script src="../.././assets/js/bootstrap.min.js"></script>
+<script src="../.././assets/js/typeahead-bs2.min.js"></script>
+<script src="../.././assets/js/jquery.dataTables.min.js"></script>
+<script src="../.././assets/js/jquery.dataTables.bootstrap.js"></script>
+<script src="../.././assets/layer/layer.js" type="text/javascript"></script>
+<script src="../.././assets/laydate/laydate.js" type="text/javascript"></script>
+<script src="../.././assets/js/ajaxClear.js" type="text/javascript"></script>
+<script src="../.././assets/js/layer.shadow.js" type="text/javascript"></script>
+
+</head>
+
+<style>
+.materials .materialsjc table tr td {
+        width: 15%;
+        text-align: center;
+        border: 1px solid #D1E1E9;
+        font-size: 14px;
+        color: #666666;
+        font-weight: 100;
+        line-height: 45px;
+        
+    }
+  td{
+    line-height:20px !important;
+    }
+  .materialsxqTop>.content>p{
+	 float:left;
+	 margin-right:25px;
+   }
+  input[type="text"]{
+      margin-left:0px;
+      height:100%;
+      width:100%;
+  }
+  textarea{padding:0;margin:0;width:100%;height:100px;
+  padding-left: 5px;
+  padding-top: 5px;}
+  #TeacherName{
+  border:0px;
+  }
+   #generalPlan{
+  height:98px;
+  }
+  #guide{
+  height:120px;
+  }
+   label.error { float: none; color: red; padding-left: .5em; vertical-align: top; }
+</style>
+<body style="height: 100%">
+ 
+<div id="StudentInfoProtect">
+<div class=" page-content clearfix materials">
+<div class="row">
+<div class="row materialsjc">
+ <form method="post" action="/StudentPlanSystem/WordExportController/exportStudentBasicInfo?usercode=<%=usercode %>" id="studentInfo" name="studentInfo">
+<table  name="StudentInfoProtect" border="1px" bordercolor="#D1E1E9" cellspacing="0px" style="border-collapse:collapse; margin-top:0px;">
+  <tr class="th1">
+    <td height="35" ><div align="center">姓名</div></td>
+    <td >
+      <input type="text" id="studentname" maxlength="10" name="studentname" placeholder="${obj.studentname}" />
+     
+    </td>
+    <td ><div align="center">性别</div></td>
+    <td ><input type="text" id="sex" placeholder="男/女" maxlength="1" name="sex" placeholder="${obj.sex}"/>
+  
+    </td>
+    <td><div align="center">民族</div></td>
+    <td ><input type="text" id="nation" name="nation" maxlength="10" placeholder="${obj.nation}"/>
+    </td>
+   
+  </tr>
+  <tr class="th1" >
+    <td  height="35" ><div align="center">出生日期</div></td>
+    <td ><input type="text"id="birthday" maxlength="10" name="birthday" placeholder="${obj.birthday}"/>
+    </td>
+    <td ><div align="center">籍贯</div></td>
+    <td ><input type="text" id="location" name="location"  maxlength="20" placeholder="${obj.location}"/>
+    <td ><div align="center">联系电话</div></td>
+    <td ><input type="text" id="phone" maxlength="20" name="phone"  placeholder="${obj.phone}"/>
+    </td>
+  </tr>
+  <tr class="th1">
+    <td  height="35" ><div align="center">专业</div></td>
+    <td ><input type="text"id="majorname" maxlength="10" name="majorname" placeholder="${obj.majorname}"/>
+    </td>
+    <td ><div align="center">班级</div></td>
+    <td ><input type="text" id="classname" name="classname"  maxlength="20" placeholder="${obj.classname}"/>
+    <td ><div align="center">发展地点</div></td>
+    <td ><input type="text" id="dev_location" maxlength="20" name="dev_location" placeholder="${obj.dev_location}"/>
+    </td>
+  </tr>
+  <tr>
+    <td rowspan="2"><div align="center">自我评估</div></td>
+    <td height="65" colspan="1"><div align="center">发展经历<br></div></td>
+    <td colspan="5"><textarea id="advantage" maxlength="101" name="advantage">${obj.advantage}</textarea></td>
+  </tr>
+  <tr>
+    <td height="65" colspan="1"><div align="center">自我评价<br></div></td>
+    <td colspan="5"><textarea id="disadvantage" maxlength="101" name="disadvantage">${obj.disadvantage}</textarea></td>
+  </tr>
+   <tr id="last" >
+    <td height="150"><div align="center">发展建议<br></div></td>
+    <td colspan="6"><textarea style="border: 0px;" maxlength="201" id="guide" name="guide">${obj.guide}</textarea></td>
+    </tr>
+  
+</table>
+</form>
+</div>
+</div>
+</div>
+</div>
+		<br/>
+	</body>
+</html>
+

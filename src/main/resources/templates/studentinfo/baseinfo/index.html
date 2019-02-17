@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>毕业生信息跟踪</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="stylesheet" href="./assets/css/bootstrap.min.css"/>
+<link rel="stylesheet" href="./assets/css/font-awesome.min.css" />
+<link rel="stylesheet" href="./assets/css/ace.min.css" />
+<link rel="stylesheet" href="./assets/css/ace-rtl.min.css" />
+<link rel="stylesheet" href="./assets/css/ace-skins.min.css" />
+<link rel="stylesheet" href="./assets/css/style.css" />
+<script src="./assets/js/jquery-2.0.3.min.js"></script>
+<script type="text/javascript">
+    if ("ontouchend" in document) document.write("<script src='resources/assets/js/jquery.mobile.custom.min.js'>" + "<" + "script>");
+    </script>
+<script src="./assets/js/bootstrap.min.js"></script>
+<script src="./assets/js/typeahead-bs2.min.js"></script>
+<script src="./assets/js/ace-elements.min.js"></script>
+<script src="./assets/js/ace.min.js"></script>
+<script src="./assets/layer/layer.js" type="text/javascript"></script>
+<script src="./assets/laydate/laydate.js" type="text/javascript"></script>
+<script src="./studentinfo/baseinfo/js/index.js" type="text/javascript"></script>
+<style>
+.logo {
+	width: 600px;
+	height: 198px;
+	float: left;
+	margin: 0px 0 0 0px;
+	position: relative;
+}
+
+.logo_xingxing {
+	width: 300px;
+	height: 198px;
+	position: absolute;
+	top: -30px;
+	left: -140px;
+}
+
+.slideBox {
+	width: 650px;
+	height: 198px;
+	overflow: hidden;
+	position: relative;
+}
+
+.slideBox .bd {
+	position: relative;
+	height: 100%;
+	z-index: 0;
+	top: 0;
+}
+
+.slideBox .bd li {
+	zoom: 1;
+	vertical-align: middle;
+}
+
+.slideBox .bd img {
+	width: 650px;
+	height: 198px;
+	display: block;
+	border: none
+}
+
+.nav1 .open>a, .nav1 .open>a:hover, .nav1 .open>a:focus {
+	background-color: #0b55a5;
+}
+.copyright{
+text-align:center;
+}
+#name-div {
+	width: 100%;
+	height: 100%;
+	position: relative;
+	float: left;
+	display: inline;
+	margin:0 auto;
+	text-align:center;
+}
+
+#name-div h1 {
+	width: 100%;
+	height: 100%;
+	float: left;
+	text-align:center;
+	margin-top: 40px;
+	color:#0F0F0F ;
+}
+
+#continer-div {
+	float: left;
+	position: relative;
+	display: inline;
+	margin-top: 50px;
+}
+</style>
+</head>
+
+<body style="min-width: 1300px;">
+	<div class="navbar navbar-default" id="navbar">
+       
+        <div class="navbar-container" id="navbar-container">
+            <div class="navbar-header pull-left">
+	             		<div  id="name-div">
+	             		  <h1 id="title" align="center">毕业生信息跟踪系统</h1>
+	             		</div>
+            </div>
+            
+        </div>
+    </div>
+	<div class="clearfix"
+		style="height: 40px; width: 100%; background: #0b55a5;">
+		<div class="sidebar-shortcuts" style="display: inline-block"
+			id="sidebar-shortcuts">
+			<div class="sidebar-shortcuts-large" id="sidebar-shortcuts-large">
+				功能菜单 Menu <i class=" icon-th-list"></i>
+			</div>
+			<div class="sidebar-shortcuts-mini" id="sidebar-shortcuts-mini">
+				<span class="btn btn-success"></span> <span class="btn btn-info"></span>
+				<span class="btn btn-warning"></span> <span class="btn btn-danger"></span>
+			</div>
+		</div>
+		<script type="text/javascript">
+                try {
+                    ace.settings.check('breadcrumbs', 'fixed')
+                } catch (e) {}
+                </script>
+
+		<div style="float: right; margin-right: 20px; width: auto; height: 40px; line-height: 40px; color: #60a2e8; font-size: 12px;">
+			<ul class="nav nav1" style="float: right;">
+				<li class="light-blue"><a data-toggle="dropdown" href="#"
+					class="dropdown-toggle" style="padding: 0 10px;"> <span
+						style="line-height: 40px; color: #60a2e8">欢迎光临,荣耀之</span> <i
+						class="icon-caret-down"></i>
+				</a>
+					<ul
+						class="user-menu pull-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
+						<li><a href="#" onclick="select()"><i id="alonemassage"
+								class="glyphicon glyphicon-user"></i>个人信息</a></li>
+						<li><a href="#" class="change_Password"><i
+								class="icon-unlock-alt"></i>修改密码</a></li>
+						<li><a href="javascript:ovid(0)" id="Exit_system"><i
+								class="icon-off"></i>退出</a></li>
+					</ul></li>
+			</ul>
+		</div>
+		
+	</div>
+	<div class="main-container" id="main-container">
+		<script type="text/javascript">
+        try {
+            ace.settings.check('main-container', 'fixed')
+        } catch (e) {}
+        </script>
+		<div class="main-container-inner">
+			<a class="menu-toggler" id="menu-toggler" href="#"> <span
+				class="menu-text"></span>
+			</a>
+			<div class="sidebar" id="sidebar">
+				<script type="text/javascript">
+                try {
+                    ace.settings.check('sidebar', 'fixed')
+                } catch (e) {}
+                </script>
+
+				<ul class="nav nav-list" id="nav_list">
+				</ul>
+				<div class="sidebar-collapse" id="sidebar-collapse">
+					<i class="icon-double-angle-left"
+						data-icon1="icon-double-angle-left"
+						data-icon2="icon-double-angle-right"></i>
+				</div>
+				<script type="text/javascript">
+                try {
+                    ace.settings.check('sidebar', 'collapsed')
+                } catch (e) {}
+                
+                </script>
+			</div>
+			<div class="main-content">
+
+				<iframe id="iframe"
+					style="border: 0; width: 100%; background-color: #FFF; margin:10px 1px 1px 1px"
+					name="iframe" frameborder="0" src="./studentinfo/baseinfo/studentinfo.html"> </iframe>
+
+				<div class="copyright">南阳师范学院 版权所有</div>
+			</div>
+
+		</div>
+
+	</div>
+
+	
+	
+	
+</body>
+
+
+
+<script>
+    //天气
+    $(function () {
+     
+        $.ajax({
+            url: 'https://free-api.heweather.com/v5/weather?city=%E4%B8%89%E9%97%A8%E5%B3%A1&key=8cbcec7b1c7c46419dde63b33dba5d04',
+            type: 'get',
+            dataType: 'json',
+        })
+        .done(function(data) {
+            var text = data.HeWeather5[0].now.cond.txt;
+            var code = data.HeWeather5[0].now.cond.code;
+            var wind = data.HeWeather5[0].now.wind.dir;
+            var min = data.HeWeather5[0].daily_forecast[0].tmp.min;
+            var max = data.HeWeather5[0].daily_forecast[0].tmp.max;
+            var weatherimg = "/resources/electronicscreen/img/weather/"+code+".png";
+            var html = text+"&nbsp;&nbsp;&nbsp;"+min+"-"+max+"℃"+"&nbsp;&nbsp;&nbsp;"+wind;
+            $(".weatherimg").attr('src', weatherimg);
+            $("#weatherimg_right").html(html);
+ 
+        })
+        .fail(function() {
+            console.log("error");
+        });
+       
+    });
+</script>
+<script>
+/* 获取当前日期 */
+function showTime() {
+    var show_day = new Array('星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六');
+    var time = new Date();
+    var year = time.getFullYear();
+    var month = time.getMonth() + 1;
+    var date = time.getDate();
+    var day = time.getDay();
+    var hour = time.getHours();
+    var minutes = time.getMinutes();
+    var second = time.getSeconds();
+    /*  month<10?month='0'+month:month;  */
+    hour < 10 ? hour = '0' + hour : hour;
+    minutes < 10 ? minutes = '0' + minutes : minutes;
+    second < 10 ? second = '0' + second : second;
+    var now_time = '今天是' + year + '年' + month + '月' + date + '日' + ' &nbsp; ' + show_day[day] + '';
+    document.getElementById('nowDateInfo').innerHTML = now_time;
+    setTimeout("showTime();", 1000);
+}
+
+</script>
+
+</html>

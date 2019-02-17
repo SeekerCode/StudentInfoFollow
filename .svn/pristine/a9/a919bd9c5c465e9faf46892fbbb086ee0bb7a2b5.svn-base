@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mapper.BaseInfoSelectMapper">
+
+	<select id="getMajorInfo" resultType="com.example.model.BaseInfo">
+		select a.*,b.count 
+		from majorinfo a
+		left join (select 
+           		       majorcode,
+                       count(studentcode) count 
+                   from studentinfo 
+                   ORDER BY majorcode) b on a.majorcode = b.majorcode
+         where 1=1
+        <if test="majorcode!= null and majorcode!=''">
+			and a.majorcode	= #{majorcode}
+		</if>
+	</select>
+	 
+	<select id="getClassInfo" resultType="com.example.model.BaseInfo">
+		select 
+			a.*,
+			b.majorname,
+			c.count
+	    from classinfo a
+		left join majorinfo b on a.majorcode = b.majorcode
+        left join (select 
+                       classcode,
+                       count(studentcode) count 
+                   from studentinfo 
+                   ORDER BY classcode) c on a.classcode = c.classcode
+		where 1 = 1
+		<if test="majorcode!= null and majorcode!=''">
+			and a.majorcode	= #{majorcode}
+		</if>
+		<if test="year!= null and year!=''">
+			and a.year	= #{year}
+		</if>
+	</select>
+</mapper>

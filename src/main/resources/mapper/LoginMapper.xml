@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace = "com.example.mapper.loginMapper">
+	<select id = "queryMenu" resultType="com.example.model.LoginRoleInfo">
+		SELECT 
+			distinct
+			up.usertype roleid,
+			up.privilegeid,
+			upmain.privilegenumber,
+			upmain.privilegename,
+			upmain.privilegetreelevel,
+			upmain.privilegetipflag,
+			upmain.privilegetypeflag,
+			upmain.privilegeurl
+		FROM 
+			usertype_privilege up
+		LEFT JOIN 
+			privilegemaintain upmain ON up.privilegeid = upmain.id
+		WHERE 
+			1=1
+			<!-- AND up.usertype =  #{strUserId} -->
+		ORDER BY upmain.privilegetreelevel
+	</select>
+</mapper>
