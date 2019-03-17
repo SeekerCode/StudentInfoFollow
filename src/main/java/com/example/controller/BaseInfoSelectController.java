@@ -23,6 +23,7 @@ public class BaseInfoSelectController {
 	public  Map<String,Object> getMajorInfo(HttpServletRequest req){
 		
 	  Map<String,Object> info = service.getMajorInfo(req);
+	  
 	  return info;
 	}
 	

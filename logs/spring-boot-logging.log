@@ -1,1 +1,4 @@
-2019-02-17 08:52:19.117  WARN 13824 --- [HikariPool-2 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-2 - Thread starvation or clock leap detected (housekeeper delta=10h18m42s182ms388µs399ns).
+2019-03-10 02:08:10.980  WARN 13424 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=3h26s789ms276µs924ns).
+2019-03-10 08:35:19.147  WARN 13424 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=6h27m13s490ms976µs568ns).
+2019-03-10 09:43:06.219  INFO 13424 --- [RMI TCP Connection(2)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2019-03-10 09:43:06.233  INFO 13424 --- [RMI TCP Connection(2)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

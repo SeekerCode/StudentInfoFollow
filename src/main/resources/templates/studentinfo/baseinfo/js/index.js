@@ -1,4 +1,3 @@
-
 $(document).ready(function() {
 	//初始化宽度、高度    
 	$("#main-container").height($(window).height() - 100);

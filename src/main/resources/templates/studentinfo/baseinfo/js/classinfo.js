@@ -49,8 +49,8 @@
 	  //查询条件
 	    function queryParams(params) {
 	        return {
-	            pageSize: params.pageSize,
-	            pageIndex: params.pageNumber
+	            pageSize: params.pageSize,//页面数据条数
+	            pageIndex: params.pageNumber//页面的
 	           
 	        };
 	    };

@@ -13,6 +13,10 @@ import com.example.mapper.BaseInfoSelectMapper;
 import com.example.model.BaseInfo;
 import com.example.service.BaseInfoSelectService;
 
+/*
+ * Service层接口方法的实现
+ */
+
 @Service
 public class BaseInfoSelectServiceImp implements BaseInfoSelectService{
    
@@ -24,6 +28,7 @@ public class BaseInfoSelectServiceImp implements BaseInfoSelectService{
 		Map<String, Object> map = new HashMap<>();
 		List<BaseInfo> info = null;
 		String majorcode = (req.getParameter("majorcode") == null ? "" : req.getParameter("majorcode").trim());
+	  //System.out.println("你的学号是:" + majorcode);
 		info = mapper.getMajorInfo(majorcode);
 		map.put("rows", info);
 		map.put("count", 1);
