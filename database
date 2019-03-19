@@ -1,0 +1,187 @@
+/*
+Navicat MySQL Data Transfer
+
+Source Server         : ceshi
+Source Server Version : 80011
+Source Host           : localhost:3306
+Source Database       : studentinfofollow
+
+Target Server Type    : MYSQL
+Target Server Version : 80011
+File Encoding         : 65001
+
+Date: 2019-03-19 21:43:08
+*/
+
+SET FOREIGN_KEY_CHECKS=0;
+
+-- ----------------------------
+-- Table structure for classinfo
+-- ----------------------------
+DROP TABLE IF EXISTS `classinfo`;
+CREATE TABLE `classinfo` (
+  `classid` int(11) NOT NULL AUTO_INCREMENT,
+  `classcode` varchar(20) DEFAULT NULL,
+  `classname` varchar(20) DEFAULT NULL,
+  `majorcode` varchar(20) DEFAULT NULL,
+  `year` varchar(8) DEFAULT NULL,
+  PRIMARY KEY (`classid`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of classinfo
+-- ----------------------------
+INSERT INTO `classinfo` VALUES ('1', '100001', 'aaa', '555', '1');
+INSERT INTO `classinfo` VALUES ('2', '100002', 'bbb', '666', '2');
+
+-- ----------------------------
+-- Table structure for graduateinfo
+-- ----------------------------
+DROP TABLE IF EXISTS `graduateinfo`;
+CREATE TABLE `graduateinfo` (
+  `usercode` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '学号',
+  `year` varchar(8) DEFAULT NULL,
+  `dev_direction` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '发展方向',
+  `dev_location` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '发展地点',
+  `evaluation` varchar(500) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '自我评价',
+  `dev_suggest` varchar(500) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '发展建议',
+  `status` varchar(1) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of graduateinfo
+-- ----------------------------
+INSERT INTO `graduateinfo` VALUES ('171404050229', '1', '123', 'BJ', '123', '123', '1');
+INSERT INTO `graduateinfo` VALUES ('151404050001', '2', '321', 'HZ', '321', '321', '1');
+INSERT INTO `graduateinfo` VALUES ('678', '1', 'nj', 'asdfghjkl', 'qwertyuiop', '234', '1');
+INSERT INTO `graduateinfo` VALUES ('10009', '1', '英国', 'BBBBBBB', 'AAAAAAA', '234', '1');
+INSERT INTO `graduateinfo` VALUES ('7', '1', '67', '8', '467', null, '0');
+
+-- ----------------------------
+-- Table structure for majorinfo
+-- ----------------------------
+DROP TABLE IF EXISTS `majorinfo`;
+CREATE TABLE `majorinfo` (
+  `majorid` int(11) NOT NULL AUTO_INCREMENT,
+  `majorcode` varchar(20) DEFAULT NULL,
+  `majorname` varchar(20) DEFAULT NULL,
+  PRIMARY KEY (`majorid`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of majorinfo
+-- ----------------------------
+INSERT INTO `majorinfo` VALUES ('1', '555', 'aaa');
+INSERT INTO `majorinfo` VALUES ('2', '666', 'bbb');
+
+-- ----------------------------
+-- Table structure for privilegemaintain
+-- ----------------------------
+DROP TABLE IF EXISTS `privilegemaintain`;
+CREATE TABLE `privilegemaintain` (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键',
+  `privilegenumber` varchar(500) NOT NULL COMMENT '权限编号',
+  `privilegename` varchar(200) NOT NULL COMMENT '权限名称',
+  `privilegetreelevel` varchar(500) NOT NULL COMMENT '权限级别',
+  `privilegetipflag` char(1) NOT NULL COMMENT '是否为末级',
+  `privilegetypeflag` char(1) NOT NULL COMMENT '是否为按钮',
+  `privilegeurl` varchar(1000) DEFAULT NULL COMMENT '菜单路径',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=51 DEFAULT CHARSET=utf8 COMMENT='权限信息';
+
+-- ----------------------------
+-- Records of privilegemaintain
+-- ----------------------------
+INSERT INTO `privilegemaintain` VALUES ('43', '001', '首页', '001', '1', '1', './studentinfo/baseinfo/studentinfo.html');
+INSERT INTO `privilegemaintain` VALUES ('44', '002', '基础信息维护', '002', '0', '1', null);
+INSERT INTO `privilegemaintain` VALUES ('45', '002001', '专业信息查询', '002001', '1', '1', './studentinfo/baseinfo/majorinfo.html');
+INSERT INTO `privilegemaintain` VALUES ('46', '002002', '班级信息查询', '002002', '1', '1', './studentinfo/baseinfo/classinfo.html');
+INSERT INTO `privilegemaintain` VALUES ('47', '002004', '学生信息查询', '002004', '1', '1', './studentinfo/baseinfo/studentinfo.html');
+INSERT INTO `privilegemaintain` VALUES ('48', '003', '毕业信息填报', '003', '0', '1', null);
+INSERT INTO `privilegemaintain` VALUES ('49', '003001', '毕业生填报', '003001', '1', '1', './studentinfo/infosubmit/studentinfosubmit.html');
+INSERT INTO `privilegemaintain` VALUES ('50', '003002', '批量信息录入', '003002', '1', '1', './studentinfo/infosubmit/batchsubmit.html');
+
+-- ----------------------------
+-- Table structure for studentinfo
+-- ----------------------------
+DROP TABLE IF EXISTS `studentinfo`;
+CREATE TABLE `studentinfo` (
+  `studentcode` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '学号',
+  `classcode` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '班级号',
+  `majorcode` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '专业号',
+  `studentname` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '姓名',
+  `sex` varchar(2) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '性别',
+  `birthday` varchar(16) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '出生日期',
+  `nation` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '民族',
+  `location` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '籍贯',
+  `phone` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '联系电话',
+  `political` varchar(20) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '政治面貌',
+  `email` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '邮箱'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of studentinfo
+-- ----------------------------
+INSERT INTO `studentinfo` VALUES ('151404050001', '100001', '555', 'zxc', '男', '19951001', '汉', '123', '123456789', '共青团员', '1111');
+INSERT INTO `studentinfo` VALUES ('171404050229', '100002', '666', 'yhg', '男', '19991123', '汉', '123', '987654321', '共青团员', '2222');
+INSERT INTO `studentinfo` VALUES ('007', '004', '555', '小刚', '男', '1999', '汉', '河南', '111', '共青团员', 'i');
+INSERT INTO `studentinfo` VALUES ('10009', '004', '001', '小红', '女', '346', '汉', '美国', '008', '群众', '21346');
+INSERT INTO `studentinfo` VALUES ('911', '120', '110', '奥巴马', '男', '1970', '印第安', '非洲', '12354', '民主党员', '12354');
+INSERT INTO `studentinfo` VALUES ('8976', '13245', '12345', '阿瑟东v从', '男', '1345', '12345', '13451', '12345', '234', '12345');
+INSERT INTO `studentinfo` VALUES ('4QA胡一天想', '13245', '12345', '阿瑟东v从', '男', '1345', '12345', '13451', '12345', '234', '12345');
+INSERT INTO `studentinfo` VALUES ('1814171001', '004', '001', 'ggg', '男', '违法', '汉', '我EF', '111', '共青团员', 'i');
+INSERT INTO `studentinfo` VALUES ('3333', '', '', '阿瑟东v从', '男', '违法', '', '', '', '共青团员', '');
+INSERT INTO `studentinfo` VALUES ('234', '', '', '', '', '', '', '', '', '', '');
+INSERT INTO `studentinfo` VALUES ('2341', '', '', '', '', '', '', '', '', '', '');
+INSERT INTO `studentinfo` VALUES ('5555555', '', '', '', '', '', '', '', '', '', '');
+INSERT INTO `studentinfo` VALUES ('1234', '', '', '', '', '', '', '', '', '', '');
+INSERT INTO `studentinfo` VALUES ('6789', '', '', '', '', '', '', '', '', '', '');
+INSERT INTO `studentinfo` VALUES ('请346', '', '', '', '', '', '', '', '', '', '');
+INSERT INTO `studentinfo` VALUES ('其35646', '', '', '', '', '', '', '', '', '', '');
+INSERT INTO `studentinfo` VALUES ('3546', '', '', '', '', '', '', '', '', '', '');
+INSERT INTO `studentinfo` VALUES ('2465', '', '', '', '', '', '', '', '', '', '');
+INSERT INTO `studentinfo` VALUES ('4526', '', '', '', '', '', '', '', '', '', '');
+INSERT INTO `studentinfo` VALUES ('1', '4', '34', '456', '男', '7', '1', '45', '54', '65', '54');
+INSERT INTO `studentinfo` VALUES ('2', '7', '55554', '1', '1', '7', '3', '4', '6', '6', '4');
+INSERT INTO `studentinfo` VALUES ('7', '5', '6', '5', '7', '7', '4', '6', '8', '7', '7');
+
+-- ----------------------------
+-- Table structure for userinfo
+-- ----------------------------
+DROP TABLE IF EXISTS `userinfo`;
+CREATE TABLE `userinfo` (
+  `usercode` varchar(50) NOT NULL COMMENT '用户账号',
+  `username` varchar(20) DEFAULT NULL,
+  `account` varchar(20) DEFAULT NULL,
+  `password` varchar(100) DEFAULT NULL,
+  `usertype` varchar(2) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of userinfo
+-- ----------------------------
+INSERT INTO `userinfo` VALUES ('151404050001', 'zxc', '1', '1', '3');
+INSERT INTO `userinfo` VALUES ('171404050229', 'yhg', '1', '1', '3');
+
+-- ----------------------------
+-- Table structure for usertype_privilege
+-- ----------------------------
+DROP TABLE IF EXISTS `usertype_privilege`;
+CREATE TABLE `usertype_privilege` (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键',
+  `usertype` char(1) NOT NULL COMMENT '人员类别:0,学生;1,年级导师;2，专业导师;3,学工办;4,学生处',
+  `privilegeid` int(11) NOT NULL COMMENT '菜单: 权限ID',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=148 DEFAULT CHARSET=utf8 COMMENT='用户类别菜单关联表';
+
+-- ----------------------------
+-- Records of usertype_privilege
+-- ----------------------------
+INSERT INTO `usertype_privilege` VALUES ('140', '3', '43');
+INSERT INTO `usertype_privilege` VALUES ('141', '3', '44');
+INSERT INTO `usertype_privilege` VALUES ('142', '3', '45');
+INSERT INTO `usertype_privilege` VALUES ('143', '3', '46');
+INSERT INTO `usertype_privilege` VALUES ('144', '3', '47');
+INSERT INTO `usertype_privilege` VALUES ('145', '3', '48');
+INSERT INTO `usertype_privilege` VALUES ('146', '3', '49');
+INSERT INTO `usertype_privilege` VALUES ('147', '3', '50');
